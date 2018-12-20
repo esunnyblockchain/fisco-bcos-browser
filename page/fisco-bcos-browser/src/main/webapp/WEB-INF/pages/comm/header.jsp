@@ -24,8 +24,13 @@
                         <li id="LI15"><a href="../blockStatistics/blockStatistics.page">共识流</a></li>
                     </ul>
                 </li>
-                <li id="LI_login" class="hidden-lg hidden-md ">
-                    <a href="/login" title="Login Now">&nbsp;Login</a>
+                 
+                <li id="LI_warrant" class="dropdown ">
+                
+                    <a href="#" class data-toggle="dropdown">仓单管理</a>
+                    <ul class="dropdown-menu">
+                        <li id="LI17"><a href="../warrant/warrantList.page">仓单列表</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

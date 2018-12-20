@@ -158,8 +158,8 @@ public class TbMarketAuctionSuccessEventDto implements Serializable{
                 .append(warrantID).append('\"');
         sb.append(",\"price\":\"")
                 .append(price).append('\"');
-        sb.append(",\"warrantDetail\":\"")
-                .append(warrantDetail).append('\"');
+        sb.append(",\"warrantDetail\":")
+                .append(warrantDetail);
         sb.append(",\"blockTimestamp\":\"")
                 .append(blockTimestamp).append('\"');
         sb.append('}');

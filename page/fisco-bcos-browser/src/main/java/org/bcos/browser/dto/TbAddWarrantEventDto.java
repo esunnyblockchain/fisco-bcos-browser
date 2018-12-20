@@ -130,8 +130,8 @@ public class TbAddWarrantEventDto implements Serializable{
                 .append(toID).append('\"');
         sb.append(",\"warrantID\":\"")
                 .append(warrantID).append('\"');
-        sb.append(",\"warrantDetail\":\"")
-                .append(warrantDetail).append('\"');
+        sb.append(",\"warrantDetail\":")
+                .append(warrantDetail);
         sb.append(",\"blockTimestamp\":\"")
                 .append(blockTimestamp).append('\"');
         sb.append('}');
