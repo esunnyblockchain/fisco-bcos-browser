@@ -400,7 +400,11 @@ public class GovernService {
 	        List<String> cnsInfo = Contract.cnsCall("ContractAbiMgr", "getAllByIndex", new String[] {String.valueOf(i)}, "latest");
 	        CnsContractDTO cnsContractDTO = new CnsContractDTO();
 	        cnsContractDTO.setAbi(cnsInfo.get(0));
-	        cnsContractDTO.setContractAddress(cnsInfo.get(1));
+	        String address = cnsInfo.get(1);
+	        cnsContractDTO.setContractAddress(address);
+	        Object[] params = new Object[] {address, blockNumber};
+	        String code = (String)getInfoByMethod(ETH_GET_CODE,params);
+	        cnsContractDTO.setBin(code);
 	        cnsContractDTO.setContractName(cnsInfo.get(2));
 	        cnsContractDTO.setVersion(cnsInfo.get(3));
 	        cnsContractDTO.setStartBlock(cnsInfo.get(4));
@@ -410,8 +414,9 @@ public class GovernService {
 	            System.out.println("insert CNS transfer");
 	            governServiceDAO.insertCNS(cnsContractDTO);
 	        } else {
-	            System.out.println("insert CNS transfer error");
+	            System.out.println("insert CNS transfer skip for repeat data");
 	        }
+	        
 	    }
 	}
 	

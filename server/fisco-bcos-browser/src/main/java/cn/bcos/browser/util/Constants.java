@@ -26,6 +26,8 @@ package cn.bcos.browser.util;
  * Constants
  */
 public interface Constants {
+    
+    String ETH_GET_CODE             = "eth_getCode";
 
     /** gets thecurrent block height */
     String ETH_BLOCK_NUMBER			= "eth_blockNumber";
