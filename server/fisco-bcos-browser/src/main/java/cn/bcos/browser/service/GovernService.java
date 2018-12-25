@@ -405,6 +405,7 @@ public class GovernService {
 	        Object[] params = new Object[] {address, blockNumber};
 	        String code = (String)getInfoByMethod(ETH_GET_CODE,params);
 	        cnsContractDTO.setBin(code);
+	        cnsContractDTO.setContractAddress(cnsInfo.get(1));
 	        cnsContractDTO.setContractName(cnsInfo.get(2));
 	        cnsContractDTO.setVersion(cnsInfo.get(3));
 	        cnsContractDTO.setStartBlock(cnsInfo.get(4));
@@ -416,7 +417,6 @@ public class GovernService {
 	        } else {
 	            System.out.println("insert CNS transfer skip for repeat data");
 	        }
-	        
 	    }
 	}
 	

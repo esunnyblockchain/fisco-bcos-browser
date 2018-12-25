@@ -12,6 +12,7 @@
 <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../assets/js/jquery.pagination.min.js"></script>
 <script type="text/javascript" src="../assets/laydate/laydate.js"></script>
+<script type="text/javascript" src="../assets/js/jquery-flexslider.min.js"></script>
 
 
 <link rel="stylesheet" type="text/css" href="../css/header.css" />
@@ -25,6 +26,7 @@
 <link rel="stylesheet" href="../assets/custom-head-foot-scroll-blue.css"/>
 <link rel="stylesheet" href="../assets/plugins/line-icons/line-icons.css"/>
 <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/public.css" />
 
 
 

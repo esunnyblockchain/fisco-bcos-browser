@@ -43,6 +43,7 @@ public class ConstantCode {
     public static final String QUERY_FAIL_PAGE_NUMBER_EMPTY  = "{\"code\":3008,\"msg\":\"Current page number cannot be blank\"}";
     public static final String QUERY_FAIL_PAGE_NUMBER_MIN_1  = "{\"code\":3009,\"msg\":\"The current page number must be greater than or equal to 1\"}";
     public static final RetCode QUERY_FAIL_BLOCK_HASH_EMPTY  = new RetCode(3010,"Block Hash cannot be empty");
+    public static final RetCode QUERY_FAIL_WARRANT_ID_INVALID  = new RetCode(3050,"Warrant Id is not valid");
     public static final RetCode QUERY_FAIL_PK_HASH_EMPTY  = new RetCode(3011,"Hash value cannot be empty");
     public static final String QUERY_FAIL_PK_HASH_PARAM_EMPTY  = "{\"code\":3012,\"msg\":\"Hash value cannot be empty\"}";
     public static final String QUERY_FAIL_OBJECT_ARRAY_PARAM_EMPTY  = "{\"code\":3013,\"msg\":\"Object cannot be empty\"}";
