@@ -2,7 +2,7 @@ group 'org.bcos.browser'
 version '1.0'
 
 apply plugin: 'java'
-apply plugin: 'war'
+apply plugin: 'war' 
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -87,9 +87,22 @@ List spring =[
 
 dependencies {
     compile apache_commons,servlet,logger,spring,fastjson,commonsdbcp,mysql,mybatis,springmybatis,jackson,validate
+    
+    def tomcatVersion = '9.0.8'
+
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+           
+    compile 'org.apache.httpcomponents:httpclient:4.5.5',
+    'org.bouncycastle:bcprov-jdk15on:1.54',
+    'com.lambdaworks:scrypt:1.4.0',
+    'com.squareup:javapoet:1.7.0',
+    'io.reactivex:rxjava:1.2.4',
+    'com.github.jnr:jnr-unixsocket:0.15'
+           
+    compile files("lib/web3sdk.jar")
 }
-
-
 
 war {
     destinationDir  file('dist/apps')

@@ -30,6 +30,7 @@
                     <a href="#" class data-toggle="dropdown">仓单管理</a>
                     <ul class="dropdown-menu">
                         <li id="LI17"><a href="../warrant/warrantList.page">仓单列表</a></li>
+                        <li id="LI17"><a href="../warrant/warrantVerify.page">仓单验证</a></li>
                     </ul>
                 </li>
             </ul>
