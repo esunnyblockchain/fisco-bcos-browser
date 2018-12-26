@@ -10,6 +10,8 @@
         <result column="blockGasLimit" jdbcType="BIGINT" property="blockGasLimit" javaType="java.math.BigInteger" />
         <result column="transactionIndex" jdbcType="BIGINT" property="transactionIndex" javaType="java.math.BigInteger" />
         <result column="transactionFrom" jdbcType="VARCHAR" property="transactionFrom" javaType="java.lang.String" />
+        <result column="transactionFromName" jdbcType="VARCHAR" property="transactionFrom" javaType="java.lang.String" />
+        <result column="transactionFromID" jdbcType="VARCHAR" property="transactionFrom" javaType="java.lang.String" />
         <result column="transactionTo" jdbcType="VARCHAR" property="transactionTo" javaType="java.lang.String" />
         <result column="gas" jdbcType="BIGINT" property="gas" javaType="java.math.BigInteger" />
         <result column="gasPrice" jdbcType="DECIMAL" property="gasPrice" javaType="java.math.BigDecimal" />
@@ -24,7 +26,7 @@
 
 
     <sql id="ALL_COLUMN">
-       pk_hash as pkHash,blockHash,blockNumber,blockTimestamp,blockGasLimit,transactionIndex,transactionFrom,transactionTo,gas,
+       pk_hash as pkHash,blockHash,blockNumber,blockTimestamp,blockGasLimit,transactionIndex,transactionFrom,transactionFromName,transactionFromID,transactionTo,gas,
        gasPrice,cumulativeGas,randomId,inputText,contractName,version,method,params
     </sql>
 

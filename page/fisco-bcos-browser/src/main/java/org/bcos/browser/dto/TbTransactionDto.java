@@ -37,6 +37,8 @@ public class TbTransactionDto implements Serializable {
     private BigInteger blockGasLimit;//Gas Limit
     private BigInteger transactionIndex;
     private String transactionFrom;
+    private String transactionFromName;
+    private String transactionFromID;
     private String transactionTo;
     private BigInteger gas;//Used By Txn
     private BigDecimal gasPrice;
@@ -47,7 +49,22 @@ public class TbTransactionDto implements Serializable {
     private String version;
     private String method;
     private String params;
+    
+    public String getTransactionFromName() {
+        return transactionFromName;
+    }
 
+    public void setTransactionFromName(String transactionFromName) {
+        this.transactionFromName = transactionFromName;
+    }
+
+    public String getTransactionFromID() {
+        return transactionFromID;
+    }
+
+    public void setTransactionFromID(String transactionFromID) {
+        this.transactionFromID = transactionFromID;
+    }
     public String getPkHash() {
         return pkHash;
     }

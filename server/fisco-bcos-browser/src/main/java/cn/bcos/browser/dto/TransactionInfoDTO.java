@@ -39,6 +39,8 @@ public class TransactionInfoDTO {
 	private long blockGasLimit;
 	private long transactionIndex;
 	private String transactionFrom;
+    private String transactionFromName;
+	private String transactionFromID;
 	private String transactionTo;
 	private long gas;
 	private BigDecimal gasPrice;
@@ -51,7 +53,19 @@ public class TransactionInfoDTO {
 	private String method;
 	private String params;
 	
-
+    public String getTransactionFromName() {
+        return transactionFromName;
+    }
+    public void setTransactionFromName(String transactionFromName) {
+        this.transactionFromName = transactionFromName;
+    }
+    public String getTransactionFromID() {
+        return transactionFromID;
+    }
+    public void setTransactionFromID(String transactionFromID) {
+        this.transactionFromID = transactionFromID;
+    }
+	
 	public String getPk_hash() {
 		return pk_hash;
 	}

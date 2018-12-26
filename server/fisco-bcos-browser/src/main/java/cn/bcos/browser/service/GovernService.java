@@ -255,6 +255,9 @@ public class GovernService {
 			transactionInfoDTO.setVersion(null!=jsonTrans.getJSONObject("operation")?jsonTrans.getJSONObject("operation").getString("version"):"");
 			transactionInfoDTO.setMethod(null!=jsonTrans.getJSONObject("operation")?jsonTrans.getJSONObject("operation").getString("method"):"");
 			transactionInfoDTO.setParams(null!=jsonTrans.getJSONObject("operation")?jsonTrans.getJSONObject("operation").getString("params"):"");
+			List<String> userInfo = Contract.cnsCall("IdentityMgr", "getIdentityInfo", new String[] {transactionInfoDTO.getTransactionFrom()}, jsonTrans.getString("blockNumber"));
+			transactionInfoDTO.setTransactionFromName(userInfo.get(0));
+			transactionInfoDTO.setTransactionFromID(userInfo.get(1));
 			String pk_hash=governServiceDAO.selectPkHash(jsonTrans.getString("hash") );
 			if("".equals(pk_hash)||null==pk_hash){
 				governServiceDAO.insertTransactionInfo(transactionInfoDTO);
@@ -307,7 +310,7 @@ public class GovernService {
                 marketAuctionSuccessEventDTO.setContractAddress(addr);
                 marketAuctionSuccessEventDTO.setContractName(MarketContractName);
                 marketAuctionSuccessEventDTO.setTransactionIndex(receipt.getTransactionIndex().longValue());
-                marketAuctionSuccessEventDTO.setTransactionHash(receipt.getBlockHash());
+                marketAuctionSuccessEventDTO.setTransactionHash(receipt.getTransactionHash());
                 marketAuctionSuccessEventDTO.setEventIndex(event.getIndex());
                 marketAuctionSuccessEventDTO.setWarrantID(event.getValues().get(0).getValue().toString()); //Token id
                 String fromAddress = String.valueOf(event.getValues().get(1));//from
@@ -375,7 +378,7 @@ public class GovernService {
                 addWarrantEventDTO.setBlockNumber(receipt.getBlockNumber().intValue());
                 addWarrantEventDTO.setBlockHash(receipt.getBlockHash());
                 addWarrantEventDTO.setTransactionIndex(receipt.getTransactionIndex().longValue());
-                addWarrantEventDTO.setTransactionHash(receipt.getBlockHash());
+                addWarrantEventDTO.setTransactionHash(receipt.getTransactionHash());
                 addWarrantEventDTO.setWarrantTokenAddress(addr);
                 addWarrantEventDTO.setFromAddress(adminAddress);
                 addWarrantEventDTO.setFromName(adminInfo.get(0)); //name
@@ -403,8 +406,9 @@ public class GovernService {
 	        String address = cnsInfo.get(1);
 	        cnsContractDTO.setContractAddress(address);
 	        Object[] params = new Object[] {address, blockNumber};
-	        String code = (String)getInfoByMethod(ETH_GET_CODE,params);
-	        cnsContractDTO.setBin(code);
+	        Object code = getInfoByMethod(ETH_GET_CODE,params);
+	        //System.out.println("code+++++:"+code);
+	        cnsContractDTO.setBin(code.toString());
 	        cnsContractDTO.setContractAddress(cnsInfo.get(1));
 	        cnsContractDTO.setContractName(cnsInfo.get(2));
 	        cnsContractDTO.setVersion(cnsInfo.get(3));

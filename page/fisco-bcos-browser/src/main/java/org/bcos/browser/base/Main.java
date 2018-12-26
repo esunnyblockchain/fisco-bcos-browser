@@ -27,10 +27,12 @@ import java.util.List;
 import org.bcos.browser.dto.TbAddWarrantEventDto;
 import org.bcos.browser.dto.TbCnsContractDto;
 import org.bcos.browser.dto.TbMarketAuctionSuccessEventDto;
+import org.bcos.browser.dto.TbTransactionDto;
 import org.bcos.browser.service.TbAddWarrantEventService;
 import org.bcos.browser.service.TbCnsContractService;
 import org.bcos.browser.service.TbMarketAuctionSuccessService;
 import org.bcos.browser.service.TbNodesInfoService;
+import org.bcos.browser.service.TbTransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -90,6 +92,14 @@ public class Main {
             if(result == null) return;
             System.out.println(result);
 		}
+		
+		{//测试新增的交易字段
+		    TbTransactionService service = context.getBean(TbTransactionService.class);
+            //查询所有的交易记录。TODO 分页查询？
+            TbTransactionDto result = service.getTbTransactionByPkHash("0x04ac6dc20f9852afe1a5c6c676169ec37185e58e27ed7b2e4fdbfe1b52e5cea7");
+            if(result == null) return;
+            System.out.println(result.getContractName());
+        }
 		
 		
 		

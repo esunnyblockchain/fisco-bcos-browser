@@ -2,6 +2,7 @@ package cn.bcos.browser.contract;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bcos.web3j.abi.EventEncoder;
@@ -57,8 +58,17 @@ public class Contract {
         Object[] obejcts = new Object[] {JSONObject.parseObject(jsonRPCstr),blockNumber};
         
         //3. 调用
-        String ret = (String)GovernService.getInfoByMethod(methodName,obejcts);
-        return JSONArray.parseArray(ret,String.class);
+        Object ret = GovernService.getInfoByMethod(methodName,obejcts);
+        System.out.println("cns call: "+ret.toString());
+        List<String> Strs = new ArrayList<String>();
+        try {
+            Strs = JSONArray.parseArray(ret.toString(),String.class);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            Strs.clear();
+            for(int i = 0; i < 10; ++i) Strs.add("");
+        }
+        return Strs;
     }
     
     public static List<EventResult> parseTransactionReceipt(TransactionReceipt receipt, AbiDefinition ABI, String address) {
